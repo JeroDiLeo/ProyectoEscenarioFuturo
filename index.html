@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fútbol en Casa 2070 - Proyecto Universitario</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Fondo con luces de estadio -->
+    <div class="stadium-lights"></div>
+    
+    <!-- Botón Modo Hinchada (flotante) -->
+    <button class="hinchada-btn" id="hinchadaBtn" aria-label="Modo hinchada">
+        <span class="hinchada-icon">🙌</span>
+        <span class="hinchada-text">Modo hinchada</span>
+    </button>
+    <audio id="hinchadaAudio" loop>
+        <source src="assets/hinchada.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-logo">
+                <a href="#inicio">Fútbol en Casa 2070</a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="header-nav" id="headerNav">
+                <ul class="nav-list">
+                    <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="#actualidad" class="nav-link">Actualidad</a></li>
+                    <li><a href="#escenario" class="nav-link">Escenario 2070</a></li>
+                    <li><a href="#propuesta" class="nav-link">Propuesta</a></li>
+                    <li><a href="#teorico" class="nav-link">Enfoque teórico</a></li>
+                    <li><a href="#transmedia" class="nav-link">Transmedia</a></li>
+                    <li><a href="#experiencia-vr" class="nav-link">Experiencia VR</a></li>
+                    <li><a href="#homenaje" class="nav-link">Homenaje</a></li>
+                    <li><a href="#interactivo" class="nav-link">Interactivo</a></li>
+                    <li><a href="#bibliografia" class="nav-link">Bibliografía</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero / Inicio -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>¿Cómo cambiará en 2070 la forma de comunicar y vivir un partido de fútbol en casa en Argentina?</h1>
+            <p class="hero-subtitle">Un proyecto universitario que explora un futuro donde la realidad virtual y aumentada transforman la experiencia futbolera, permitiendo vivir cada partido desde el living como si estuvieras en la cancha.</p>
+            <div class="hero-buttons">
+                <a href="#experiencia-vr" class="btn btn-primary">Ver experiencia VR</a>
+                <a href="#propuesta" class="btn btn-secondary">Conocer el proyecto</a>
+            </div>
+        </div>
+        <div class="hero-background"></div>
+    </section>
+
+    <!-- Actualidad -->
+    <section id="actualidad" class="section">
+        <div class="container">
+            <h2 class="section-title">Cómo se vive el fútbol en casa hoy</h2>
+            <div class="content-block">
+                <p>En la actualidad, el fútbol en casa se centra principalmente en la televisión y el streaming. Plataformas como Flow, DirecTV GO y otras OTT se han convertido en el eje central de consumo, ofreciendo múltiples canales y partidos en vivo.</p>
+                <p>Sin embargo, la experiencia no se limita a la pantalla principal. Las redes sociales, WhatsApp, memes y comentarios en vivo funcionan como una segunda pantalla, creando una experiencia social compartida aunque físicamente separada.</p>
+                
+                <!-- Línea de tiempo futbolera -->
+                <div class="timeline-container">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">0'</div>
+                            <div class="timeline-content">
+                                <h3>Radio / TV clásica</h3>
+                                <p>El fútbol llegaba a los hogares a través de la radio y la televisión tradicional, creando momentos compartidos en familia.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">45'</div>
+                            <div class="timeline-content">
+                                <h3>Streaming y segunda pantalla</h3>
+                                <p>La era digital trajo el streaming y las redes sociales como segunda pantalla, ampliando la experiencia más allá de la TV.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">90'</div>
+                            <div class="timeline-content">
+                                <h3>Experiencia inmersiva RA/RV</h3>
+                                <p>Nuestro escenario 2070: realidad aumentada y virtual transforman completamente cómo vivimos el fútbol desde casa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bullets-box">
+                    <h3>Características del consumo actual:</h3>
+                    <ul>
+                        <li>Televisión y streaming como centro de la experiencia</li>
+                        <li>Redes sociales y mensajería como segunda pantalla</li>
+                        <li>Fragmentación de derechos de transmisión</li>
+                        <li>Dificultades de acceso por costos y disponibilidad</li>
+                        <li>Sensación de que el fútbol, como bien cultural, está cada vez más restringido</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Escenario 2070 -->
+    <section id="escenario" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Nuestro escenario 2070</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🥽</div>
+                    <div class="card-ball"></div>
+                    <h3>RA/RV masificadas</h3>
+                    <p>Las tecnologías de realidad aumentada y virtual se han vuelto accesibles y masivas. Experiencias inmersivas desde el living son parte del día a día, transformando cómo consumimos entretenimiento y deportes.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💰</div>
+                    <div class="card-ball"></div>
+                    <h3>Inversión en streaming deportivo</h3>
+                    <p>La inversión global en deportes por streaming ha crecido exponencialmente, alcanzando montos históricos. El fútbol lidera esta transformación, con plataformas dedicadas y experiencias premium.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📈</div>
+                    <div class="card-ball"></div>
+                    <h3>Mercado de RA/RV en expansión</h3>
+                    <p>El mercado de dispositivos y contenido de realidad aumentada y virtual continúa expandiéndose, con innovaciones constantes que mejoran la calidad, accesibilidad y precio de las experiencias.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🇦🇷</div>
+                    <div class="card-ball"></div>
+                    <h3>Argentina: acceso y brechas</h3>
+                    <p>En Argentina, el acceso a internet ha mejorado significativamente, aunque persisten brechas digitales. Nuestra propuesta busca ser lo más inclusiva y accesible posible, democratizando la experiencia futbolera del futuro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Propuesta -->
+    <section id="propuesta" class="section section-field">
+        <div class="field-background"></div>
+        <div class="container">
+            <h2 class="section-title">Nuestra propuesta: vivir la cancha desde el living</h2>
+            
+            <!-- Slider de vistas de cámara -->
+            <div class="camera-slider">
+                <div class="slider-container">
+                    <div class="slide active">
+                        <div class="slide-icon">🏟️</div>
+                        <h3>Vista tribuna</h3>
+                        <p>Experimentá el partido desde la perspectiva de la tribuna, con la energía y la vista panorámica del estadio completo. Sentite parte de la hinchada.</p>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-icon">⚽</div>
+                        <h3>Vista jugador</h3>
+                        <p>Viví la acción desde la perspectiva del jugador en el campo. Cada pase, cada jugada, como si estuvieras dentro de la cancha.</p>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-icon">📹</div>
+                        <h3>Vista campo de juego</h3>
+                        <p>Disfrutá de una vista aérea y estratégica del campo completo, perfecta para analizar tácticas y movimientos del equipo.</p>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-btn prev" id="prevSlide" aria-label="Anterior">‹</button>
+                    <div class="slider-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                    </div>
+                    <button class="slider-btn next" id="nextSlide" aria-label="Siguiente">›</button>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🎥</div>
+                    <div class="feature-ball"></div>
+                    <h3>Múltiples perspectivas</h3>
+                    <p>Elegí entre diferentes modos de cámara: tribuna, campo de juego o perspectiva de jugador. Cambiá de vista en tiempo real según tu preferencia.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✨</div>
+                    <div class="feature-ball"></div>
+                    <h3>Elementos holográficos</h3>
+                    <p>Jugadores, escudos y marcador flotante aparecen en tu living mediante realidad aumentada, creando una experiencia visual única e inmersiva.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔊</div>
+                    <div class="feature-ball"></div>
+                    <h3>Sonido 360° y vibraciones</h3>
+                    <p>Audio espacial que te rodea completamente, junto con vibraciones del ambiente que simulan la energía del estadio en tu hogar.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">👥</div>
+                    <div class="feature-ball"></div>
+                    <h3>Salas virtuales compartidas</h3>
+                    <p>Conectate con amigos y familia en una sala virtual para ver el partido juntos, aunque estén a kilómetros de distancia. La comunidad futbolera se reúne digitalmente.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💳</div>
+                    <div class="feature-ball"></div>
+                    <h3>Modelos de acceso flexibles</h3>
+                    <p>Suscripción compartida, versión con publicidad o versión premium inmersiva. Opciones para todos los bolsillos y necesidades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enfoque teórico -->
+    <section id="teorico" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Marco conceptual</h2>
+            <div class="theory-cards">
+                <div class="theory-card">
+                    <h3>Alessandro Baricco – The Game</h3>
+                    <p>La revolución digital representa un cambio cultural profundo. La idea de "humanidad aumentada" sugiere que la tecnología amplifica nuestras capacidades y experiencias. En nuestro proyecto, esto se traduce en amplificar la pasión futbolera, llevando la experiencia del estadio a cada hogar de manera inmersiva y transformadora.</p>
+                </div>
+                <div class="theory-card">
+                    <h3>Sherry Turkle – Connected but Alone</h3>
+                    <p>La paradoja de estar conectados pero solos es un desafío de nuestra era. Sin embargo, nuestro proyecto busca usar la tecnología para reconstruir comunidad, no para aislar. Las salas virtuales y la experiencia compartida permiten que la tecnología sea un puente que une hinchas, no una barrera que los separa.</p>
+                </div>
+                <div class="theory-card">
+                    <h3>Chris Milk – VR como máquina de empatía</h3>
+                    <p>La realidad virtual puede aumentar la empatía y la sensación de presencia. En el contexto futbolero, esto significa "sentir" a otros hinchas aunque estén lejos, compartir emociones en tiempo real y crear vínculos más profundos a través de experiencias inmersivas compartidas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Narrativa transmedia -->
+    <section id="transmedia" class="section">
+        <div class="container">
+            <h2 class="section-title">Narrativa transmedia</h2>
+            <div class="transmedia-cards">
+                <div class="transmedia-card">
+                    <div class="transmedia-icon">🎬</div>
+                    <div class="transmedia-ball"></div>
+                    <h3>Spot audiovisual</h3>
+                    <p>Pieza central de la campaña que muestra a un hincha en 2070 viviendo el partido desde el sillón como si estuviera en la tribuna. Una narrativa visual que transporta al espectador al futuro del fútbol en casa.</p>
+                </div>
+                <div class="transmedia-card">
+                    <div class="transmedia-icon">🌐</div>
+                    <div class="transmedia-ball"></div>
+                    <h3>Sitio / App interactiva</h3>
+                    <p>Plataforma donde se explora el producto, se elige rol (hincha, jugador, comentarista) y se navega por la experiencia. Un espacio digital que permite experimentar las posibilidades antes de sumergirse completamente.</p>
+                </div>
+                <div class="transmedia-card">
+                    <div class="transmedia-icon">📱</div>
+                    <div class="transmedia-ball"></div>
+                    <h3>Redes sociales</h3>
+                    <p>Filtros de realidad aumentada, desafíos, contenido generado por usuarios y una comunidad digital futbolera activa. Las redes amplifican la experiencia y crean conexiones entre hinchas de todo el país.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiencia VR -->
+    <section id="experiencia-vr" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Probá la experiencia con tus lentes</h2>
+            <p class="section-intro">Entrá desde tu celular, poné el video en pantalla completa y colocá el teléfono en los visores. Sumergite en el futuro del fútbol en casa.</p>
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/FcSnHBZcC4w" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    class="video-iframe">
+                </iframe>
+            </div>
+            <div class="video-button-container">
+                <a href="https://www.youtube.com/watch?v=FcSnHBZcC4w" target="_blank" class="btn btn-secondary">Abrir en YouTube</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Homenaje -->
+    <section id="homenaje" class="section">
+        <div class="container">
+            <h2 class="section-title">Homenaje</h2>
+            <div class="tribute-content">
+                <p class="tribute-text">Este proyecto rinde homenaje a los ídolos del fútbol argentino que han marcado generaciones y a todas aquellas personas que vivieron el fútbol en televisión antes de esta revolución tecnológica. Sus pasiones, sus gritos desde el living y sus conexiones emocionales con el juego son la base sobre la que construimos el futuro.</p>
+                <blockquote class="tribute-quote">
+                    "El fútbol es pasión, es emoción, es comunidad. La tecnología del futuro no reemplaza eso, lo amplifica y lo lleva a cada rincón del país."
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- Elementos interactivos -->
+    <section id="interactivo" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Elementos interactivos futuros</h2>
+            <div class="interactive-chips">
+                <div class="interactive-chip">
+                    <div class="chip-icon">📹</div>
+                    <div class="chip-content">
+                        <h3>Selección de cámara</h3>
+                        <p>Cambiá entre diferentes ángulos en tiempo real</p>
+                    </div>
+                    <span class="coming-soon">Próximamente</span>
+                </div>
+                <div class="interactive-chip">
+                    <div class="chip-icon">📊</div>
+                    <div class="chip-content">
+                        <h3>Estadísticas flotantes</h3>
+                        <p>Paneles holográficos con datos en tiempo real</p>
+                    </div>
+                    <span class="coming-soon">Próximamente</span>
+                </div>
+                <div class="interactive-chip">
+                    <div class="chip-icon">🎤</div>
+                    <div class="chip-content">
+                        <h3>Modo tribuna 360°</h3>
+                        <p>Cánticos y sonidos del estadio que te rodean</p>
+                    </div>
+                    <span class="coming-soon">Próximamente</span>
+                </div>
+                <div class="interactive-chip">
+                    <div class="chip-icon">👨‍👩‍👧‍👦</div>
+                    <div class="chip-content">
+                        <h3>Salas virtuales</h3>
+                        <p>Ver el partido junto a tus amigos en tiempo real</p>
+                    </div>
+                    <span class="coming-soon">Próximamente</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bibliografía -->
+    <section id="bibliografia" class="section">
+        <div class="container">
+            <h2 class="section-title">Bibliografía y fuentes</h2>
+            <div class="bibliography-content">
+                <div class="bibliography-section">
+                    <h3>Referencias teóricas</h3>
+                    <ul class="bibliography-list">
+                        <li>Baricco, Alessandro – <em>"The Game"</em></li>
+                        <li>Turkle, Sherry – Charla TED <em>"Connected but alone?"</em></li>
+                        <li>Milk, Chris – Charla TED sobre realidad virtual y empatía</li>
+                    </ul>
+                </div>
+                <div class="bibliography-section">
+                    <h3>Informes y datos</h3>
+                    <ul class="bibliography-list">
+                        <li>Informes sobre uso de internet en Argentina</li>
+                        <li>Estudios sobre mercado de realidad aumentada y virtual</li>
+                        <li>Análisis de inversión en deportes por streaming</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Fútbol en Casa 2070 - Proyecto Universitario</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menú hamburguesa
+        const menuToggle = document.getElementById('menuToggle');
+        const headerNav = document.getElementById('headerNav');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const header = document.querySelector('.header');
+
+        menuToggle.addEventListener('click', () => {
+            headerNav.classList.toggle('nav-open');
+            menuToggle.classList.toggle('open');
+        });
+
+        // Cerrar menú al hacer clic en un link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                headerNav.classList.remove('nav-open');
+                menuToggle.classList.remove('open');
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll suave mejorado
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll reveal con IntersectionObserver
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos para animación
+        const animateElements = document.querySelectorAll('.section-title, .card, .feature, .theory-card, .transmedia-card, .interactive-chip, .content-block, .bullets-box, .tribute-content, .bibliography-section, .timeline-item, .slide');
+        animateElements.forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+
+        // Modo hinchada
+        const hinchadaBtn = document.getElementById('hinchadaBtn');
+        const hinchadaAudio = document.getElementById('hinchadaAudio');
+        let hinchadaActive = false;
+
+        hinchadaBtn.addEventListener('click', () => {
+            hinchadaActive = !hinchadaActive;
+            
+            if (hinchadaActive) {
+                hinchadaBtn.classList.add('active');
+                hinchadaBtn.querySelector('.hinchada-text').textContent = 'Hinchada ON';
+                try {
+                    hinchadaAudio.play().catch(() => {
+                        // Silencioso si no se puede reproducir
+                    });
+                } catch (e) {
+                    // Silencioso si hay error
+                }
+            } else {
+                hinchadaBtn.classList.remove('active');
+                hinchadaBtn.querySelector('.hinchada-text').textContent = 'Modo hinchada';
+                hinchadaAudio.pause();
+                hinchadaAudio.currentTime = 0;
+            }
+        });
+
+        // Slider vistas de cámara
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
+        });
+
+        // Auto-play slider (opcional)
+        // setInterval(nextSlide, 5000);
+    </script>
+</body>
+</html>
+
