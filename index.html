@@ -66,49 +66,144 @@
 
     <!-- Actualidad -->
     <section id="actualidad" class="section">
+        <div class="stadium-field-lines"></div>
         <div class="container">
             <h2 class="section-title">Cómo se vive el fútbol en casa hoy</h2>
             <div class="content-block">
                 <p>En la actualidad, el fútbol en casa se centra principalmente en la televisión y el streaming. Plataformas como Flow, DirecTV GO y otras OTT se han convertido en el eje central de consumo, ofreciendo múltiples canales y partidos en vivo.</p>
                 <p>Sin embargo, la experiencia no se limita a la pantalla principal. Las redes sociales, WhatsApp, memes y comentarios en vivo funcionan como una segunda pantalla, creando una experiencia social compartida aunque físicamente separada.</p>
-                
-                <!-- Línea de tiempo futbolera -->
-                <div class="timeline-container">
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-marker">0'</div>
-                            <div class="timeline-content">
-                                <h3>Radio / TV clásica</h3>
-                                <p>El fútbol llegaba a los hogares a través de la radio y la televisión tradicional, creando momentos compartidos en familia.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-marker">45'</div>
-                            <div class="timeline-content">
-                                <h3>Streaming y segunda pantalla</h3>
-                                <p>La era digital trajo el streaming y las redes sociales como segunda pantalla, ampliando la experiencia más allá de la TV.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-marker">90'</div>
-                            <div class="timeline-content">
-                                <h3>Experiencia inmersiva RA/RV</h3>
-                                <p>Nuestro escenario 2070: realidad aumentada y virtual transforman completamente cómo vivimos el fútbol desde casa.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
 
-                <div class="bullets-box">
-                    <h3>Características del consumo actual:</h3>
-                    <ul>
-                        <li>Televisión y streaming como centro de la experiencia</li>
-                        <li>Redes sociales y mensajería como segunda pantalla</li>
-                        <li>Fragmentación de derechos de transmisión</li>
-                        <li>Dificultades de acceso por costos y disponibilidad</li>
-                        <li>Sensación de que el fútbol, como bien cultural, está cada vez más restringido</li>
-                    </ul>
+            <!-- Carrusel infinito - Viaje en el tiempo -->
+            <div class="timeline-carousel">
+                <div class="timeline-track">
+                    <!-- Items originales -->
+                    <article class="timeline-card" data-year="1970">
+                        <div class="timeline-badge">
+                            <span class="year-label">1970</span>
+                            <div class="badge-glow"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="card-header">
+                                <div class="card-icon">📻</div>
+                                <h3>Radio y TV clásica</h3>
+                            </div>
+                            <p>La familia reunida frente al televisor blanco y negro. La voz del relator pintaba la jugada mientras todos contenían el aliento. El fútbol era un ritual compartido en el living, con mate y tostadas, donde cada gol unía a generaciones enteras frente a la misma pantalla.</p>
+                            <div class="card-footer">
+                                <span class="tech-tag">📺 TV analógica</span>
+                                <span class="tech-tag">📻 Radio AM/FM</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="timeline-card active" data-year="2025">
+                        <div class="timeline-badge">
+                            <span class="year-label">2025</span>
+                            <div class="badge-glow"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="card-header">
+                                <div class="card-icon">📱</div>
+                                <h3>Streaming y segunda pantalla</h3>
+                            </div>
+                            <p>Flow, DirecTV GO, múltiples dispositivos. El celular en una mano, el mate en la otra. WhatsApp explota con cada jugada, Twitter se llena de memes al instante. La experiencia es híbrida: pantalla grande + pantalla chica, comunidad física + comunidad digital. El fútbol ahora se vive en múltiples dimensiones simultáneas.</p>
+                            <div class="card-footer">
+                                <span class="tech-tag">📺 Streaming HD</span>
+                                <span class="tech-tag">💬 Redes sociales</span>
+                                <span class="tech-tag">📊 Estadísticas live</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="timeline-card future" data-year="2070">
+                        <div class="timeline-badge">
+                            <span class="year-label">2070</span>
+                            <div class="badge-glow"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="card-header">
+                                <div class="card-icon">🥽</div>
+                                <h3>Experiencia inmersiva RA/RV</h3>
+                            </div>
+                            <p>Te ponés los lentes y el estadio aparece en tu living. Sentís las vibraciones de la hinchada, el olor del pasto, la tensión del penal. Tus amigos están ahí, en modo holográfico, aunque vivan en otra provincia. Cambiás de perspectiva con un gesto: tribuna, campo, vista de arquero. El fútbol dejó de ser algo que ves para convertirse en algo que vivís.</p>
+                            <div class="card-footer">
+                                <span class="tech-tag">🥽 RA/RV masiva</span>
+                                <span class="tech-tag">🌐 Salas virtuales</span>
+                                <span class="tech-tag">✨ Hologramas</span>
+                                <span class="tech-tag">🔊 Audio 360°</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Items duplicados para efecto infinito -->
+                    <article class="timeline-card" data-year="1970" aria-hidden="true">
+                        <div class="timeline-badge">
+                            <span class="year-label">1970</span>
+                            <div class="badge-glow"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="card-header">
+                                <div class="card-icon">📻</div>
+                                <h3>Radio y TV clásica</h3>
+                            </div>
+                            <p>La familia reunida frente al televisor blanco y negro. La voz del relator pintaba la jugada mientras todos contenían el aliento. El fútbol era un ritual compartido en el living, con mate y tostadas, donde cada gol unía a generaciones enteras frente a la misma pantalla.</p>
+                            <div class="card-footer">
+                                <span class="tech-tag">📺 TV analógica</span>
+                                <span class="tech-tag">📻 Radio AM/FM</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="timeline-card active" data-year="2025" aria-hidden="true">
+                        <div class="timeline-badge">
+                            <span class="year-label">2025</span>
+                            <div class="badge-glow"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="card-header">
+                                <div class="card-icon">📱</div>
+                                <h3>Streaming y segunda pantalla</h3>
+                            </div>
+                            <p>Flow, DirecTV GO, múltiples dispositivos. El celular en una mano, el mate en la otra. WhatsApp explota con cada jugada, Twitter se llena de memes al instante. La experiencia es híbrida: pantalla grande + pantalla chica, comunidad física + comunidad digital. El fútbol ahora se vive en múltiples dimensiones simultáneas.</p>
+                            <div class="card-footer">
+                                <span class="tech-tag">📺 Streaming HD</span>
+                                <span class="tech-tag">💬 Redes sociales</span>
+                                <span class="tech-tag">📊 Estadísticas live</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="timeline-card future" data-year="2070" aria-hidden="true">
+                        <div class="timeline-badge">
+                            <span class="year-label">2070</span>
+                            <div class="badge-glow"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="card-header">
+                                <div class="card-icon">🥽</div>
+                                <h3>Experiencia inmersiva RA/RV</h3>
+                            </div>
+                            <p>Te ponés los lentes y el estadio aparece en tu living. Sentís las vibraciones de la hinchada, el olor del pasto, la tensión del penal. Tus amigos están ahí, en modo holográfico, aunque vivan en otra provincia. Cambiás de perspectiva con un gesto: tribuna, campo, vista de arquero. El fútbol dejó de ser algo que ves para convertirse en algo que vivís.</p>
+                            <div class="card-footer">
+                                <span class="tech-tag">🥽 RA/RV masiva</span>
+                                <span class="tech-tag">🌐 Salas virtuales</span>
+                                <span class="tech-tag">✨ Hologramas</span>
+                                <span class="tech-tag">🔊 Audio 360°</span>
+                            </div>
+                        </div>
+                    </article>
                 </div>
+            </div>
+
+            <div class="bullets-box section-hidden" id="caracteristicas-actualidad">
+                <h3>Características del consumo actual (2025):</h3>
+                <ul>
+                    <li>Streaming como canal principal (Flow, DirecTV GO, etc.)</li>
+                    <li>Segunda pantalla: celular con redes sociales activas</li>
+                    <li>Experiencia social mediada por WhatsApp y Twitter/X</li>
+                    <li>Múltiples dispositivos simultáneos en el hogar</li>
+                    <li>Fragmentación de derechos y dificultades de acceso</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -117,30 +212,55 @@
     <section id="escenario" class="section section-dark">
         <div class="container">
             <h2 class="section-title">Nuestro escenario 2070</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-icon">🥽</div>
-                    <div class="card-ball"></div>
-                    <h3>RA/RV masificadas</h3>
-                    <p>Las tecnologías de realidad aumentada y virtual se han vuelto accesibles y masivas. Experiencias inmersivas desde el living son parte del día a día, transformando cómo consumimos entretenimiento y deportes.</p>
+            
+            <!-- Acordeón de escenarios -->
+            <div class="scenario-accordion">
+                <div class="scenario-item" data-scenario="1">
+                    <div class="scenario-header">
+                        <div class="scenario-number">01</div>
+                        <div class="scenario-icon">🥽</div>
+                        <h3>RA/RV masificadas</h3>
+                        <div class="expand-indicator">+</div>
+                    </div>
+                    <div class="scenario-body">
+                        <p>Las tecnologías de realidad aumentada y virtual se han vuelto accesibles y masivas. Experiencias inmersivas desde el living son parte del día a día, transformando cómo consumimos entretenimiento y deportes.</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <div class="card-icon">💰</div>
-                    <div class="card-ball"></div>
-                    <h3>Inversión en streaming deportivo</h3>
-                    <p>La inversión global en deportes por streaming ha crecido exponencialmente, alcanzando montos históricos. El fútbol lidera esta transformación, con plataformas dedicadas y experiencias premium.</p>
+
+                <div class="scenario-item" data-scenario="2">
+                    <div class="scenario-header">
+                        <div class="scenario-number">02</div>
+                        <div class="scenario-icon">💰</div>
+                        <h3>Inversión en streaming deportivo</h3>
+                        <div class="expand-indicator">+</div>
+                    </div>
+                    <div class="scenario-body">
+                        <p>La inversión global en deportes por streaming ha crecido exponencialmente, alcanzando montos históricos. El fútbol lidera esta transformación, con plataformas dedicadas y experiencias premium.</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <div class="card-icon">📈</div>
-                    <div class="card-ball"></div>
-                    <h3>Mercado de RA/RV en expansión</h3>
-                    <p>El mercado de dispositivos y contenido de realidad aumentada y virtual continúa expandiéndose, con innovaciones constantes que mejoran la calidad, accesibilidad y precio de las experiencias.</p>
+
+                <div class="scenario-item" data-scenario="3">
+                    <div class="scenario-header">
+                        <div class="scenario-number">03</div>
+                        <div class="scenario-icon">📈</div>
+                        <h3>Mercado de RA/RV en expansión</h3>
+                        <div class="expand-indicator">+</div>
+                    </div>
+                    <div class="scenario-body">
+                        <p>El mercado de dispositivos y contenido de realidad aumentada y virtual continúa expandiéndose, con innovaciones constantes que mejoran la calidad, accesibilidad y precio de las experiencias.</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <div class="card-icon">🇦🇷</div>
-                    <div class="card-ball"></div>
-                    <h3>Argentina: acceso y brechas</h3>
-                    <p>En Argentina, el acceso a internet ha mejorado significativamente, aunque persisten brechas digitales. Nuestra propuesta busca ser lo más inclusiva y accesible posible, democratizando la experiencia futbolera del futuro.</p>
+
+                <div class="scenario-item" data-scenario="4">
+                    <div class="scenario-header">
+                        <div class="scenario-number">04</div>
+                        <div class="scenario-icon">🇦🇷</div>
+                        <h3>Argentina: acceso y brechas</h3>
+                        <div class="expand-indicator">+</div>
+                    </div>
+                    <div class="scenario-body">
+                        <p>En Argentina, el acceso a internet ha mejorado significativamente, aunque persisten brechas digitales. Nuestra propuesta busca ser lo más inclusiva y accesible posible, democratizando la experiencia futbolera del futuro.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -182,43 +302,86 @@
                 </div>
             </div>
 
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon">🎥</div>
-                    <div class="feature-ball"></div>
-                    <h3>Múltiples perspectivas</h3>
-                    <p>Elegí entre diferentes modos de cámara: tribuna, campo de juego o perspectiva de jugador. Cambiá de vista en tiempo real según tu preferencia.</p>
+            <!-- Características con navegación vertical -->
+            <div class="features-showcase">
+                <h3 class="showcase-subtitle">Características principales</h3>
+                
+                <div class="features-navigator">
+                    <button class="feature-nav-btn prev" id="prevFeature" aria-label="Anterior">
+                        <span>↑</span>
+                    </button>
+                    
+                    <div class="feature-display">
+                        <div class="feature-item active" data-feature="0">
+                            <div class="feature-visual">
+                                <div class="feature-icon-large">🎥</div>
+                            </div>
+                            <div class="feature-info">
+                                <h3>Múltiples perspectivas</h3>
+                                <p>Elegí entre diferentes modos de cámara: tribuna, campo de juego o perspectiva de jugador. Cambiá de vista en tiempo real según tu preferencia.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item" data-feature="1">
+                            <div class="feature-visual">
+                                <div class="feature-icon-large">✨</div>
+                            </div>
+                            <div class="feature-info">
+                                <h3>Elementos holográficos</h3>
+                                <p>Jugadores, escudos y marcador flotante aparecen en tu living mediante realidad aumentada, creando una experiencia visual única e inmersiva.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item" data-feature="2">
+                            <div class="feature-visual">
+                                <div class="feature-icon-large">🔊</div>
+                            </div>
+                            <div class="feature-info">
+                                <h3>Sonido 360° y vibraciones</h3>
+                                <p>Audio espacial que te rodea completamente, junto con vibraciones del ambiente que simulan la energía del estadio en tu hogar.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item" data-feature="3">
+                            <div class="feature-visual">
+                                <div class="feature-icon-large">👥</div>
+                            </div>
+                            <div class="feature-info">
+                                <h3>Salas virtuales compartidas</h3>
+                                <p>Conectate con amigos y familia en una sala virtual para ver el partido juntos, aunque estén a kilómetros de distancia. La comunidad futbolera se reúne digitalmente.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item" data-feature="4">
+                            <div class="feature-visual">
+                                <div class="feature-icon-large">💳</div>
+                            </div>
+                            <div class="feature-info">
+                                <h3>Modelos de acceso flexibles</h3>
+                                <p>Suscripción compartida, versión con publicidad o versión premium inmersiva. Opciones para todos los bolsillos y necesidades.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="feature-nav-btn next" id="nextFeature" aria-label="Siguiente">
+                        <span>↓</span>
+                    </button>
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">✨</div>
-                    <div class="feature-ball"></div>
-                    <h3>Elementos holográficos</h3>
-                    <p>Jugadores, escudos y marcador flotante aparecen en tu living mediante realidad aumentada, creando una experiencia visual única e inmersiva.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">🔊</div>
-                    <div class="feature-ball"></div>
-                    <h3>Sonido 360° y vibraciones</h3>
-                    <p>Audio espacial que te rodea completamente, junto con vibraciones del ambiente que simulan la energía del estadio en tu hogar.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">👥</div>
-                    <div class="feature-ball"></div>
-                    <h3>Salas virtuales compartidas</h3>
-                    <p>Conectate con amigos y familia en una sala virtual para ver el partido juntos, aunque estén a kilómetros de distancia. La comunidad futbolera se reúne digitalmente.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">💳</div>
-                    <div class="feature-ball"></div>
-                    <h3>Modelos de acceso flexibles</h3>
-                    <p>Suscripción compartida, versión con publicidad o versión premium inmersiva. Opciones para todos los bolsillos y necesidades.</p>
+                
+                <!-- Indicadores de navegación -->
+                <div class="feature-indicators">
+                    <span class="feature-dot active" data-index="0"></span>
+                    <span class="feature-dot" data-index="1"></span>
+                    <span class="feature-dot" data-index="2"></span>
+                    <span class="feature-dot" data-index="3"></span>
+                    <span class="feature-dot" data-index="4"></span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Enfoque teórico -->
-    <section id="teorico" class="section section-dark">
+    <section id="teorico" class="section section-dark section-hidden">
         <div class="container">
             <h2 class="section-title">Marco conceptual</h2>
             <div class="theory-cards">
@@ -239,7 +402,7 @@
     </section>
 
     <!-- Narrativa transmedia -->
-    <section id="transmedia" class="section">
+    <section id="transmedia" class="section section-hidden">
         <div class="container">
             <h2 class="section-title">Narrativa transmedia</h2>
             <div class="transmedia-cards">
@@ -286,7 +449,7 @@
     </section>
 
     <!-- Homenaje -->
-    <section id="homenaje" class="section">
+    <section id="homenaje" class="section section-hidden">
         <div class="container">
             <h2 class="section-title">Homenaje</h2>
             <div class="tribute-content">
@@ -299,7 +462,7 @@
     </section>
 
     <!-- Elementos interactivos -->
-    <section id="interactivo" class="section section-dark">
+    <section id="interactivo" class="section section-dark section-hidden">
         <div class="container">
             <h2 class="section-title">Elementos interactivos futuros</h2>
             <div class="interactive-chips">
@@ -340,7 +503,7 @@
     </section>
 
     <!-- Bibliografía -->
-    <section id="bibliografia" class="section">
+    <section id="bibliografia" class="section section-hidden">
         <div class="container">
             <h2 class="section-title">Bibliografía y fuentes</h2>
             <div class="bibliography-content">
@@ -400,16 +563,36 @@
             }
         });
 
-        // Scroll suave mejorado
+        // Scroll suave mejorado y manejo de secciones ocultas
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    // Si la sección está oculta, mostrarla primero
+                    if (target.classList.contains('section-hidden')) {
+                        target.classList.add('visible');
+                    }
+                    
+                    // Si es la sección de actualidad, mostrar también las características
+                    if (targetId === '#actualidad') {
+                        const caracteristicas = document.getElementById('caracteristicas-actualidad');
+                        if (caracteristicas && caracteristicas.classList.contains('section-hidden')) {
+                            setTimeout(() => {
+                                caracteristicas.classList.add('visible');
+                            }, 600); // Mostrar después de llegar a la sección
+                        }
+                    }
+                    
+                    // Esperar un poco si se acaba de mostrar la sección
+                    setTimeout(() => {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }, target.classList.contains('visible') ? 100 : 0);
                 }
             });
         });
@@ -429,7 +612,7 @@
         }, observerOptions);
 
         // Observar elementos para animación
-        const animateElements = document.querySelectorAll('.section-title, .card, .feature, .theory-card, .transmedia-card, .interactive-chip, .content-block, .bullets-box, .tribute-content, .bibliography-section, .timeline-item, .slide');
+        const animateElements = document.querySelectorAll('.section-title, .card, .feature, .theory-card, .transmedia-card, .interactive-chip, .content-block, .bullets-box, .tribute-content, .bibliography-section, .timeline-item, .slide, .time-travel-step');
         animateElements.forEach(el => {
             el.classList.add('fade-in');
             observer.observe(el);
@@ -615,6 +798,261 @@
 
         // Auto-play slider (opcional)
         // setInterval(nextSlide, 5000);
+
+        // ============================================
+        // CARRUSEL INFINITO - LÍNEA DE TIEMPO
+        // ============================================
+        const timelineCarousel = document.querySelector('.timeline-carousel');
+        const timelineTrack = document.querySelector('.timeline-track');
+
+        if (timelineCarousel && timelineTrack) {
+            let isDragging = false;
+            let startX = 0;
+            let scrollLeft = 0;
+            let velocity = 0;
+            let lastX = 0;
+            let lastTime = 0;
+            let animationId = null;
+
+            // Pausar/reanudar al hacer hover (desktop)
+            timelineCarousel.addEventListener('mouseenter', () => {
+                if (!isDragging) {
+                    timelineTrack.style.animationPlayState = 'paused';
+                }
+            });
+
+            timelineCarousel.addEventListener('mouseleave', () => {
+                if (!isDragging) {
+                    timelineTrack.style.animationPlayState = 'running';
+                }
+            });
+
+            // Control táctil con arrastre manual
+            timelineCarousel.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                startX = e.touches[0].pageX;
+                lastX = startX;
+                lastTime = Date.now();
+                
+                // Pausar animación CSS y obtener posición actual
+                const computedStyle = window.getComputedStyle(timelineTrack);
+                const matrix = new DOMMatrix(computedStyle.transform);
+                scrollLeft = matrix.m41; // translateX actual
+                
+                timelineTrack.style.animation = 'none';
+                timelineTrack.style.transform = `translateX(${scrollLeft}px)`;
+            }, { passive: true });
+
+            timelineCarousel.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                
+                e.preventDefault();
+                const currentX = e.touches[0].pageX;
+                const currentTime = Date.now();
+                const deltaX = currentX - startX;
+                const deltaTime = currentTime - lastTime;
+                
+                // Calcular velocidad
+                if (deltaTime > 0) {
+                    velocity = (currentX - lastX) / deltaTime;
+                }
+                
+                lastX = currentX;
+                lastTime = currentTime;
+                
+                // Mover el track
+                const newPosition = scrollLeft + deltaX;
+                timelineTrack.style.transform = `translateX(${newPosition}px)`;
+            }, { passive: false });
+
+            timelineCarousel.addEventListener('touchend', () => {
+                isDragging = false;
+                
+                // Aplicar inercia si hay velocidad
+                if (Math.abs(velocity) > 0.1) {
+                    applyInertia();
+                } else {
+                    // Reanudar animación después de 1 segundo
+                    setTimeout(() => {
+                        timelineTrack.style.animation = '';
+                    }, 1000);
+                }
+            }, { passive: true });
+
+            function applyInertia() {
+                const deceleration = 0.95; // Factor de desaceleración
+                
+                function animate() {
+                    velocity *= deceleration;
+                    
+                    if (Math.abs(velocity) > 0.01) {
+                        const computedStyle = window.getComputedStyle(timelineTrack);
+                        const matrix = new DOMMatrix(computedStyle.transform);
+                        const currentX = matrix.m41;
+                        const newX = currentX + (velocity * 16); // 16ms por frame aproximadamente
+                        
+                        timelineTrack.style.transform = `translateX(${newX}px)`;
+                        animationId = requestAnimationFrame(animate);
+                    } else {
+                        // Cuando la inercia termina, reanudar la animación CSS
+                        cancelAnimationFrame(animationId);
+                        setTimeout(() => {
+                            timelineTrack.style.animation = '';
+                        }, 500);
+                    }
+                }
+                
+                animate();
+            }
+
+            // Soporte para mouse drag (desktop)
+            timelineCarousel.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.pageX;
+                lastX = startX;
+                lastTime = Date.now();
+                
+                const computedStyle = window.getComputedStyle(timelineTrack);
+                const matrix = new DOMMatrix(computedStyle.transform);
+                scrollLeft = matrix.m41;
+                
+                timelineTrack.style.animation = 'none';
+                timelineTrack.style.transform = `translateX(${scrollLeft}px)`;
+                timelineCarousel.style.cursor = 'grabbing';
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                
+                e.preventDefault();
+                const currentX = e.pageX;
+                const currentTime = Date.now();
+                const deltaX = currentX - startX;
+                const deltaTime = currentTime - lastTime;
+                
+                if (deltaTime > 0) {
+                    velocity = (currentX - lastX) / deltaTime;
+                }
+                
+                lastX = currentX;
+                lastTime = currentTime;
+                
+                const newPosition = scrollLeft + deltaX;
+                timelineTrack.style.transform = `translateX(${newPosition}px)`;
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (!isDragging) return;
+                isDragging = false;
+                timelineCarousel.style.cursor = 'grab';
+                
+                if (Math.abs(velocity) > 0.1) {
+                    applyInertia();
+                } else {
+                    setTimeout(() => {
+                        timelineTrack.style.animation = '';
+                    }, 1000);
+                }
+            });
+
+            // Cursor grab en desktop
+            timelineCarousel.style.cursor = 'grab';
+        }
+
+        // ============================================
+        // ACORDEÓN ESCENARIO 2070
+        // ============================================
+        const scenarioItems = document.querySelectorAll('.scenario-item');
+        
+        scenarioItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Si ya está activo, cerrarlo
+                if (item.classList.contains('active')) {
+                    item.classList.remove('active');
+                } else {
+                    // Cerrar todos los demás
+                    scenarioItems.forEach(i => i.classList.remove('active'));
+                    // Abrir el clickeado
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // ============================================
+        // NAVEGADOR DE CARACTERÍSTICAS
+        // ============================================
+        const featureItems = document.querySelectorAll('.feature-item');
+        const featureDots = document.querySelectorAll('.feature-dot');
+        const prevFeatureBtn = document.getElementById('prevFeature');
+        const nextFeatureBtn = document.getElementById('nextFeature');
+        let currentFeature = 0;
+
+        function showFeature(index) {
+            // Asegurar que el índice esté en rango
+            if (index < 0) index = featureItems.length - 1;
+            if (index >= featureItems.length) index = 0;
+            
+            currentFeature = index;
+            
+            // Actualizar items
+            featureItems.forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+            
+            // Actualizar dots
+            featureDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextFeature() {
+            showFeature(currentFeature + 1);
+        }
+
+        function prevFeature() {
+            showFeature(currentFeature - 1);
+        }
+
+        // Event listeners para botones
+        if (prevFeatureBtn) prevFeatureBtn.addEventListener('click', prevFeature);
+        if (nextFeatureBtn) nextFeatureBtn.addEventListener('click', nextFeature);
+
+        // Event listeners para dots
+        featureDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showFeature(index));
+        });
+
+        // Soporte táctil para swipe en características
+        let featureTouchStartY = 0;
+        let featureTouchEndY = 0;
+        const featureDisplay = document.querySelector('.feature-display');
+
+        if (featureDisplay) {
+            featureDisplay.addEventListener('touchstart', (e) => {
+                featureTouchStartY = e.changedTouches[0].screenY;
+            }, { passive: true });
+
+            featureDisplay.addEventListener('touchend', (e) => {
+                featureTouchEndY = e.changedTouches[0].screenY;
+                handleFeatureSwipe();
+            }, { passive: true });
+        }
+
+        function handleFeatureSwipe() {
+            const swipeThreshold = 50;
+            const swipeDistance = featureTouchStartY - featureTouchEndY;
+            
+            if (swipeDistance > swipeThreshold) {
+                // Swipe arriba - siguiente
+                nextFeature();
+            } else if (swipeDistance < -swipeThreshold) {
+                // Swipe abajo - anterior
+                prevFeature();
+            }
+        }
+
+        // Auto-avance opcional (comentado por defecto)
+        // setInterval(nextFeature, 5000);
     </script>
 </body>
 </html>

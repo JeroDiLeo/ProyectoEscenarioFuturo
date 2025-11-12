@@ -48,7 +48,7 @@ body {
 }
 
 /* ============================================
-   FONDO CON LUCES DE ESTADIO
+   FONDO CON LUCES DE ESTADIO MEJORADO
    ============================================ */
 .stadium-lights {
     position: fixed;
@@ -59,6 +59,10 @@ body {
     z-index: -1;
     pointer-events: none;
     background: 
+        /* Reflectores principales */
+        radial-gradient(ellipse 600px 400px at 20% 0%, rgba(0, 255, 136, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse 600px 400px at 80% 0%, rgba(0, 255, 136, 0.12) 0%, transparent 50%),
+        /* Iluminación ambiental */
         radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.08) 0%, transparent 40%),
         radial-gradient(circle at 90% 80%, rgba(0, 255, 136, 0.08) 0%, transparent 40%),
         radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.05) 0%, transparent 60%);
@@ -74,27 +78,74 @@ body {
     right: 0;
     bottom: 0;
     background: 
+        /* Rayos de luz */
         linear-gradient(135deg, transparent 0%, rgba(0, 255, 136, 0.03) 50%, transparent 100%),
         linear-gradient(45deg, transparent 0%, rgba(0, 255, 136, 0.03) 50%, transparent 100%);
     animation: lightsMove 12s linear infinite;
 }
 
+.stadium-lights::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        /* Reflectores laterales */
+        radial-gradient(ellipse 300px 800px at 0% 50%, rgba(0, 255, 136, 0.06) 0%, transparent 40%),
+        radial-gradient(ellipse 300px 800px at 100% 50%, rgba(0, 255, 136, 0.06) 0%, transparent 40%);
+    animation: sideSpotlights 10s ease-in-out infinite;
+}
+
+@keyframes sideSpotlights {
+    0%, 100% { 
+        opacity: 0.5;
+        transform: scaleX(1);
+    }
+    50% { 
+        opacity: 1;
+        transform: scaleX(1.1);
+    }
+}
+
 /* Modo hincha - luces más intensas */
 body.modo-hincha .stadium-lights {
     background: 
-        radial-gradient(ellipse at 20% 10%, rgba(0, 255, 136, 0.25) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 10%, rgba(0, 255, 136, 0.25) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 0%, rgba(0, 255, 136, 0.2) 0%, transparent 60%),
-        radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(0, 255, 136, 0.15) 0%, transparent 40%);
-    animation: lightsPulseIntense 3s ease-in-out infinite;
+        /* Reflectores principales intensos */
+        radial-gradient(ellipse 700px 500px at 20% 0%, rgba(0, 255, 136, 0.35) 0%, transparent 50%),
+        radial-gradient(ellipse 700px 500px at 80% 0%, rgba(0, 255, 136, 0.35) 0%, transparent 50%),
+        /* Iluminación central fuerte */
+        radial-gradient(ellipse 800px 600px at 50% 0%, rgba(0, 255, 136, 0.25) 0%, transparent 60%),
+        /* Focos laterales */
+        radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(0, 255, 136, 0.2) 0%, transparent 40%);
+    animation: lightsPulseIntense 2s ease-in-out infinite;
 }
 
 body.modo-hincha .stadium-lights::before {
     background: 
-        linear-gradient(135deg, transparent 0%, rgba(0, 255, 136, 0.1) 50%, transparent 100%),
-        linear-gradient(45deg, transparent 0%, rgba(0, 255, 136, 0.1) 50%, transparent 100%);
-    animation: lightsMove 6s linear infinite;
+        linear-gradient(135deg, transparent 0%, rgba(0, 255, 136, 0.15) 50%, transparent 100%),
+        linear-gradient(45deg, transparent 0%, rgba(0, 255, 136, 0.15) 50%, transparent 100%);
+    animation: lightsMove 5s linear infinite;
+}
+
+body.modo-hincha .stadium-lights::after {
+    background: 
+        radial-gradient(ellipse 400px 900px at 0% 50%, rgba(0, 255, 136, 0.15) 0%, transparent 40%),
+        radial-gradient(ellipse 400px 900px at 100% 50%, rgba(0, 255, 136, 0.15) 0%, transparent 40%);
+    animation: sideSpotlightsIntense 3s ease-in-out infinite;
+}
+
+@keyframes sideSpotlightsIntense {
+    0%, 100% { 
+        opacity: 0.8;
+        transform: scaleX(1.1);
+    }
+    50% { 
+        opacity: 1;
+        transform: scaleX(1.3);
+    }
 }
 
 @keyframes lightsPulse {
@@ -112,9 +163,10 @@ body.modo-hincha .stadium-lights::before {
     100% { transform: translateX(20px) translateY(20px); }
 }
 
-/* Fondo de cancha cuando modo hincha está activo */
+/* Fondo de cancha mejorado con efectos realistas */
 body.modo-hincha {
-    background: linear-gradient(180deg, #0a1a0f 0%, #0d1a0f 30%, #0f1a0f 50%, #0d1a0f 70%, #0a1a0f 100%);
+    background: 
+        linear-gradient(180deg, #0a1a0f 0%, #0d1f12 20%, #0f2314 40%, #112516 50%, #0f2314 60%, #0d1f12 80%, #0a1a0f 100%);
 }
 
 body.modo-hincha::before {
@@ -126,16 +178,55 @@ body.modo-hincha::before {
     bottom: 0;
     z-index: -1;
     background: 
-        radial-gradient(ellipse at center top, rgba(0, 255, 136, 0.15) 0%, transparent 70%),
+        /* Iluminación central del campo */
+        radial-gradient(ellipse 80% 60% at center 40%, rgba(0, 255, 136, 0.12) 0%, transparent 70%),
+        /* Líneas horizontales del césped */
         repeating-linear-gradient(
             0deg,
             transparent 0px,
+            transparent 48px,
+            rgba(255, 255, 255, 0.025) 48px,
+            rgba(255, 255, 255, 0.025) 50px
+        ),
+        /* Líneas verticales sutiles */
+        repeating-linear-gradient(
+            90deg,
+            transparent 0px,
             transparent 98px,
-            rgba(255, 255, 255, 0.03) 98px,
-            rgba(255, 255, 255, 0.03) 100px
+            rgba(255, 255, 255, 0.015) 98px,
+            rgba(255, 255, 255, 0.015) 100px
         );
     pointer-events: none;
-    animation: fieldLines 10s linear infinite;
+    animation: fieldLines 15s linear infinite;
+}
+
+body.modo-hincha::after {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+    box-shadow: 
+        0 0 40px rgba(0, 255, 136, 0.1),
+        inset 0 0 40px rgba(0, 255, 136, 0.05);
+    animation: centerCirclePulse 4s ease-in-out infinite;
+}
+
+@keyframes centerCirclePulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.05);
+        opacity: 1;
+    }
 }
 
 @keyframes fieldLines {
@@ -164,6 +255,7 @@ body.modo-hincha::before {
     gap: var(--spacing-xs);
     transition: var(--transition);
     box-shadow: 0 6px 30px rgba(0, 255, 136, 0.5);
+    -webkit-tap-highlight-color: transparent; /* Evita el highlight azul en mobile */
 }
 
 .hinchada-btn:hover {
@@ -187,16 +279,18 @@ body.modo-hincha::before {
 
 @media (max-width: 480px) {
     .hinchada-btn {
-        padding: var(--spacing-sm);
-        font-size: 0.9rem;
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.85rem;
+        min-width: auto;
+        gap: 0.3rem;
     }
     
     .hinchada-text {
-        display: none;
+        font-size: 0.8rem;
     }
     
     .hinchada-icon {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -1325,7 +1419,930 @@ body.modo-hincha .field-background::after {
 }
 
 /* ============================================
-   LÍNEA DE TIEMPO FUTBOLERA
+   SECCIÓN ACTUALIDAD - AMBIENTACIÓN ESTADIO
+   ============================================ */
+#actualidad {
+    background: 
+        linear-gradient(180deg, #0a0a0a 0%, #0d1a0f 30%, #0a0a0a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+#actualidad::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        /* Reflectores superiores */
+        radial-gradient(ellipse 800px 300px at 50% 0%, rgba(0, 255, 136, 0.08) 0%, transparent 60%),
+        /* Iluminación lateral izquierda */
+        radial-gradient(ellipse 400px 600px at 0% 50%, rgba(0, 255, 136, 0.06) 0%, transparent 50%),
+        /* Iluminación lateral derecha */
+        radial-gradient(ellipse 400px 600px at 100% 50%, rgba(0, 255, 136, 0.06) 0%, transparent 50%),
+        /* Líneas de campo */
+        repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(255, 255, 255, 0.02) 49px, rgba(255, 255, 255, 0.02) 50px);
+    pointer-events: none;
+    z-index: 0;
+    animation: stadiumLightsGlow 6s ease-in-out infinite;
+}
+
+#actualidad::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        /* Césped texture */
+        radial-gradient(circle at 50% 50%, transparent 0%, rgba(0, 50, 20, 0.3) 100%),
+        /* Spotlight central */
+        radial-gradient(ellipse 600px 400px at 50% 40%, rgba(0, 255, 136, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    animation: centralSpotlight 8s ease-in-out infinite;
+}
+
+@keyframes stadiumLightsGlow {
+    0%, 100% { 
+        opacity: 1;
+    }
+    50% { 
+        opacity: 0.7;
+    }
+}
+
+@keyframes centralSpotlight {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% { 
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+/* Efecto de reflectores en modo hincha */
+body.modo-hincha #actualidad::before {
+    background: 
+        radial-gradient(ellipse 900px 400px at 50% 0%, rgba(0, 255, 136, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 500px 700px at 0% 50%, rgba(0, 255, 136, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse 500px 700px at 100% 50%, rgba(0, 255, 136, 0.12) 0%, transparent 50%),
+        repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(255, 255, 255, 0.05) 49px, rgba(255, 255, 255, 0.05) 50px);
+    animation: stadiumLightsGlowActive 4s ease-in-out infinite;
+}
+
+body.modo-hincha #actualidad::after {
+    background: 
+        radial-gradient(circle at 50% 50%, transparent 0%, rgba(0, 80, 30, 0.4) 100%),
+        radial-gradient(ellipse 700px 500px at 50% 40%, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+}
+
+@keyframes stadiumLightsGlowActive {
+    0%, 100% { 
+        opacity: 1;
+        filter: brightness(1);
+    }
+    50% { 
+        opacity: 0.9;
+        filter: brightness(1.2);
+    }
+}
+
+/* Contenedor relativo para que el contenido esté encima */
+#actualidad .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Título especial para sección actualidad */
+#actualidad .section-title {
+    font-size: 2.2rem;
+    text-shadow: 
+        0 0 20px rgba(0, 255, 136, 0.5),
+        0 0 40px rgba(0, 255, 136, 0.3),
+        0 2px 10px rgba(0, 0, 0, 0.8);
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% {
+        text-shadow: 
+            0 0 20px rgba(0, 255, 136, 0.5),
+            0 0 40px rgba(0, 255, 136, 0.3),
+            0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+    50% {
+        text-shadow: 
+            0 0 30px rgba(0, 255, 136, 0.7),
+            0 0 60px rgba(0, 255, 136, 0.4),
+            0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+}
+
+#actualidad .content-block {
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 136, 0.15);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(0, 255, 136, 0.1) inset;
+}
+
+#actualidad .content-block p {
+    position: relative;
+    z-index: 1;
+}
+
+/* Efecto de césped en el fondo del contenido */
+#actualidad .bullets-box {
+    background: 
+        linear-gradient(135deg, rgba(0, 50, 20, 0.2) 0%, rgba(10, 10, 10, 0.8) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(0, 255, 136, 0.1) inset;
+    margin-top: var(--spacing-xl);
+}
+
+#actualidad .bullets-box.section-hidden.visible {
+    animation: bulletsFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes bulletsFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+#actualidad .bullets-box h3 {
+    color: var(--color-primary);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+#actualidad .bullets-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+#actualidad .bullets-box li {
+    position: relative;
+    padding-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+#actualidad .bullets-box li::before {
+    content: '⚽';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-size: 1rem;
+}
+
+/* Líneas del campo de fútbol decorativas */
+.stadium-field-lines {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1200px;
+    height: 70%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.15;
+}
+
+.stadium-field-lines::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: 180px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+.stadium-field-lines::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.3) 20%, rgba(255, 255, 255, 0.3) 80%, transparent 100%);
+}
+
+/* ============================================
+   CARRUSEL INFINITO - LÍNEA DE TIEMPO
+   ============================================ */
+.timeline-carousel {
+    margin: var(--spacing-xxl) 0;
+    padding: var(--spacing-lg) 0;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.timeline-carousel:active {
+    cursor: grabbing;
+}
+
+.timeline-carousel::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    background: linear-gradient(90deg, rgba(10, 10, 10, 0.8) 0%, transparent 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.timeline-carousel::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    background: linear-gradient(270deg, rgba(10, 10, 10, 0.8) 0%, transparent 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.timeline-track {
+    display: flex;
+    gap: var(--spacing-xl);
+    animation: scrollCarousel 40s linear infinite;
+    width: max-content;
+    will-change: transform;
+}
+
+.timeline-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scrollCarousel {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.timeline-card {
+    min-width: 320px;
+    max-width: 320px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.timeline-badge {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-bg-card) 0%, var(--color-bg-dark) 100%);
+    border: 3px solid var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 2;
+    box-shadow: 0 0 25px rgba(0, 255, 136, 0.4);
+    transition: var(--transition);
+    margin-bottom: var(--spacing-sm);
+}
+
+.timeline-card:hover .timeline-badge {
+    transform: scale(1.1);
+    box-shadow: 0 0 35px rgba(0, 255, 136, 0.6);
+}
+
+.year-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-shadow: 0 0 10px var(--color-primary-glow);
+    z-index: 1;
+}
+
+.badge-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--color-primary-glow) 0%, transparent 70%);
+    animation: badgePulse 2s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes badgePulse {
+    0%, 100% {
+        opacity: 0.4;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.3);
+    }
+}
+
+.timeline-content {
+    background: 
+        linear-gradient(135deg, rgba(0, 50, 20, 0.15) 0%, var(--color-bg-card) 100%);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-border);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(0, 255, 136, 0.1) inset;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, var(--color-primary) 50%, transparent 100%);
+    opacity: 0.8;
+}
+
+.timeline-card:hover .timeline-content {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.6), 
+        0 0 30px rgba(0, 255, 136, 0.3),
+        0 0 0 2px rgba(0, 255, 136, 0.2) inset;
+    border-color: var(--color-primary);
+    background: 
+        linear-gradient(135deg, rgba(0, 80, 30, 0.25) 0%, var(--color-bg-card) 100%);
+}
+
+/* Card actual (2025) destacada */
+.timeline-card.active .timeline-content {
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.05) 0%, var(--color-bg-card) 100%);
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 30px rgba(0, 255, 136, 0.2);
+}
+
+/* Card futura (2070) con efecto especial */
+.timeline-card.future .timeline-content {
+    background: linear-gradient(135deg, var(--color-bg-card) 0%, rgba(0, 255, 136, 0.08) 100%);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+}
+
+.timeline-card.future .timeline-content::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark), var(--color-primary));
+    border-radius: var(--border-radius);
+    z-index: -1;
+    opacity: 0.5;
+    animation: borderGlow 3s linear infinite;
+}
+
+@keyframes borderGlow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    flex-direction: column;
+    text-align: center;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 0 10px var(--color-primary-glow));
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.timeline-content h3 {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.timeline-content p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+    flex: 1;
+}
+
+.card-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: auto;
+    justify-content: center;
+}
+
+.tech-tag {
+    display: inline-block;
+    padding: 0.4rem 0.7rem;
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: var(--color-primary);
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.tech-tag:hover {
+    background: rgba(0, 255, 136, 0.2);
+    border-color: var(--color-primary);
+    transform: scale(1.05);
+}
+
+/* ============================================
+   RESPONSIVE - CARRUSEL INFINITO
+   ============================================ */
+
+/* Tablets pequeñas */
+@media (min-width: 640px) {
+    .timeline-card {
+        min-width: 380px;
+        max-width: 380px;
+    }
+
+    .timeline-badge {
+        width: 80px;
+        height: 80px;
+    }
+
+    .year-label {
+        font-size: 1.2rem;
+    }
+
+    .timeline-content {
+        padding: var(--spacing-xl);
+    }
+
+    .card-icon {
+        font-size: 3rem;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .timeline-content p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .tech-tag {
+        font-size: 0.8rem;
+    }
+
+    /* Velocidad más lenta en tablet */
+    .timeline-track {
+        animation-duration: 50s;
+    }
+}
+
+/* Desktop - Velocidad aún más lenta */
+@media (min-width: 768px) {
+    .timeline-card {
+        min-width: 420px;
+        max-width: 420px;
+    }
+
+    .timeline-track {
+        animation-duration: 60s;
+        gap: var(--spacing-xxl);
+    }
+
+    .card-icon {
+        font-size: 3.5rem;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .timeline-content p {
+        font-size: 1rem;
+    }
+
+    .tech-tag {
+        font-size: 0.85rem;
+    }
+}
+
+/* Desktop grande */
+@media (min-width: 1024px) {
+    .timeline-card {
+        min-width: 450px;
+        max-width: 450px;
+    }
+
+    .timeline-content {
+        padding: var(--spacing-xxl);
+    }
+
+    .timeline-track {
+        animation-duration: 70s;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.6rem;
+    }
+
+    .timeline-content p {
+        font-size: 1.05rem;
+    }
+}
+
+/* ============================================
+   ACORDEÓN ESCENARIO 2070
+   ============================================ */
+.scenario-accordion {
+    margin: var(--spacing-xxl) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.scenario-item {
+    background: linear-gradient(135deg, rgba(0, 50, 20, 0.1) 0%, var(--color-bg-card) 100%);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.scenario-item:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 20px rgba(0, 255, 136, 0.2);
+}
+
+.scenario-item.active {
+    border-color: var(--color-primary);
+    background: linear-gradient(135deg, rgba(0, 80, 30, 0.2) 0%, var(--color-bg-card) 100%);
+    box-shadow: 0 8px 30px rgba(0, 255, 136, 0.3);
+}
+
+.scenario-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    position: relative;
+}
+
+.scenario-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    opacity: 0.3;
+    font-family: monospace;
+    min-width: 60px;
+}
+
+.scenario-item.active .scenario-number {
+    opacity: 1;
+    text-shadow: 0 0 20px var(--color-primary-glow);
+}
+
+.scenario-icon {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 0 10px var(--color-primary-glow));
+    transition: var(--transition);
+}
+
+.scenario-item.active .scenario-icon {
+    transform: scale(1.2);
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+.scenario-header h3 {
+    flex: 1;
+    color: var(--color-text);
+    font-size: 1.2rem;
+    margin: 0;
+    transition: var(--transition);
+}
+
+.scenario-item.active .scenario-header h3 {
+    color: var(--color-primary);
+}
+
+.expand-indicator {
+    font-size: 2rem;
+    color: var(--color-primary);
+    font-weight: 300;
+    transition: transform 0.3s ease;
+    min-width: 30px;
+    text-align: center;
+}
+
+.scenario-item.active .expand-indicator {
+    transform: rotate(45deg);
+}
+
+.scenario-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
+    padding: 0 var(--spacing-lg);
+}
+
+.scenario-item.active .scenario-body {
+    max-height: 300px;
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
+}
+
+.scenario-body p {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin: 0;
+    padding-left: 90px;
+}
+
+/* ============================================
+   SHOWCASE DE CARACTERÍSTICAS (PROPUESTA)
+   ============================================ */
+.features-showcase {
+    margin: var(--spacing-xxl) 0;
+}
+
+.showcase-subtitle {
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xl);
+    text-shadow: 0 0 10px var(--color-primary-glow);
+}
+
+.features-navigator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    position: relative;
+}
+
+.feature-nav-btn {
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.feature-nav-btn:hover {
+    background: var(--color-primary);
+    color: var(--color-bg-dark);
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px rgba(0, 255, 136, 0.4);
+}
+
+.feature-nav-btn:active {
+    transform: scale(0.95);
+}
+
+.feature-display {
+    width: 100%;
+    min-height: 350px;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    background: rgba(26, 26, 26, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-xl);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.feature-item.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    position: relative;
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 40px rgba(0, 255, 136, 0.2);
+}
+
+.feature-visual {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.feature-icon-large {
+    font-size: 5rem;
+    filter: drop-shadow(0 0 20px var(--color-primary-glow));
+    animation: iconFloat 3s ease-in-out infinite;
+    display: inline-block;
+}
+
+.feature-info {
+    text-align: center;
+}
+
+.feature-info h3 {
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.feature-info p {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.feature-indicators {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+.feature-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-border);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.feature-dot.active {
+    background: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-primary-glow);
+    transform: scale(1.3);
+}
+
+.feature-dot:hover {
+    background: var(--color-primary);
+    transform: scale(1.2);
+}
+
+/* Responsive para acordeón y showcase */
+@media (min-width: 640px) {
+    .scenario-header h3 {
+        font-size: 1.4rem;
+    }
+    
+    .scenario-body p {
+        font-size: 1.05rem;
+    }
+    
+    .feature-item {
+        flex-direction: row;
+        align-items: center;
+        padding: var(--spacing-xxl);
+    }
+    
+    .feature-visual {
+        flex: 0 0 40%;
+        margin-bottom: 0;
+    }
+    
+    .feature-info {
+        flex: 1;
+        text-align: left;
+    }
+    
+    .feature-icon-large {
+        font-size: 6rem;
+    }
+    
+    .feature-info h3 {
+        font-size: 1.7rem;
+    }
+    
+    .feature-info p {
+        font-size: 1.05rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .scenario-number {
+        font-size: 3rem;
+    }
+    
+    .scenario-icon {
+        font-size: 3rem;
+    }
+    
+    .scenario-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .feature-icon-large {
+        font-size: 7rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .scenario-item {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .scenario-item:hover:not(.active) {
+        transform: translateX(10px);
+    }
+    
+    .feature-display {
+        min-height: 300px;
+    }
+}
+
+/* ============================================
+   LÍNEA DE TIEMPO ANTIGUA (MANTENIDA PARA OTRAS SECCIONES)
    ============================================ */
 .timeline-container {
     margin: var(--spacing-xl) 0;
@@ -1412,6 +2429,31 @@ body.modo-hincha .field-background::after {
 }
 
 /* ============================================
+   SECCIONES OCULTAS (Accesibles solo desde menú)
+   ============================================ */
+.section-hidden {
+    display: none;
+    opacity: 0;
+}
+
+.section-hidden.visible {
+    display: block;
+    opacity: 1;
+    animation: sectionFadeIn 0.5s ease-out forwards;
+}
+
+@keyframes sectionFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
    MEDIA QUERIES - TABLET Y DESKTOP
    ============================================ */
 @media (min-width: 768px) {
@@ -1470,7 +2512,7 @@ body.modo-hincha .field-background::after {
     .nav-list {
         display: flex;
         flex-direction: row;
-        gap: var(--spacing-xs);
+        gap: var(--spacing-sm);
         padding: 0;
         align-items: center;
     }
@@ -1480,9 +2522,10 @@ body.modo-hincha .field-background::after {
     }
 
     .nav-link {
-        padding: var(--spacing-xs) var(--spacing-sm);
-        font-size: 0.95rem;
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.9rem;
         white-space: nowrap;
+        border-radius: var(--border-radius-sm);
     }
 
     .nav-link::before {
@@ -1490,9 +2533,10 @@ body.modo-hincha .field-background::after {
     }
 
     .nav-link:hover {
-        background-color: rgba(0, 255, 136, 0.1);
+        background-color: rgba(0, 255, 136, 0.15);
         transform: translateY(-2px);
-        padding-left: var(--spacing-sm);
+        padding: var(--spacing-sm) var(--spacing-md);
+        box-shadow: 0 4px 15px rgba(0, 255, 136, 0.2);
     }
 
     .hero h1 {
@@ -1583,8 +2627,27 @@ body.modo-hincha .field-background::after {
 /* ============================================
    MEDIA QUERIES - LARGE DESKTOP
    ============================================ */
+@media (min-width: 1024px) {
+    .nav-list {
+        gap: var(--spacing-md);
+    }
+
+    .nav-link {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: 0.95rem;
+    }
+}
+
 @media (min-width: 1440px) {
     .container {
         max-width: 1200px;
+    }
+
+    .nav-list {
+        gap: var(--spacing-lg);
+    }
+
+    .nav-link {
+        font-size: 1rem;
     }
 }
