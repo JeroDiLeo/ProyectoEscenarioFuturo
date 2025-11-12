@@ -10,14 +10,18 @@
     <!-- Fondo con luces de estadio -->
     <div class="stadium-lights"></div>
     
-    <!-- Botón Modo Hinchada (flotante) -->
-    <button class="hinchada-btn" id="hinchadaBtn" aria-label="Modo hinchada">
+    <!-- Botón Modo Hincha (flotante) -->
+    <button class="hinchada-btn" id="hinchadaBtn" aria-label="Modo hincha">
         <span class="hinchada-icon">🙌</span>
-        <span class="hinchada-text">Modo hinchada</span>
+        <span class="hinchada-text">Modo hincha</span>
     </button>
-    <audio id="hinchadaAudio" loop>
-        <source src="assets/hinchada.mp3" type="audio/mpeg">
+    <audio id="hinchadaAudio" preload="auto">
+        <source src="crowdcheer.mp3" type="audio/mpeg">
+        <source src="assets/crowdcheer.mp3" type="audio/mpeg">
     </audio>
+    
+    <!-- Contenedor para papelitos -->
+    <div class="confetti-container" id="confettiContainer"></div>
 
     <!-- Header -->
     <header class="header">
@@ -431,29 +435,147 @@
             observer.observe(el);
         });
 
-        // Modo hinchada
+        // Modo hincha
         const hinchadaBtn = document.getElementById('hinchadaBtn');
         const hinchadaAudio = document.getElementById('hinchadaAudio');
+        const confettiContainer = document.getElementById('confettiContainer');
+        const body = document.body;
         let hinchadaActive = false;
+        let confettiInterval = null;
+        let audioReady = false;
+
+        // Cargar y preparar el audio
+        function initAudio() {
+            if (hinchadaAudio) {
+                hinchadaAudio.volume = 0.7; // Volumen moderado
+                hinchadaAudio.preload = 'auto';
+                
+                // Intentar cargar el audio
+                hinchadaAudio.load();
+                
+                // Verificar si el audio se puede cargar
+                hinchadaAudio.addEventListener('canplaythrough', () => {
+                    audioReady = true;
+                    console.log('✅ Audio de hinchada cargado correctamente');
+                }, { once: true });
+                
+                hinchadaAudio.addEventListener('error', (e) => {
+                    console.warn('⚠️ No se pudo cargar el audio de hinchada.');
+                    console.warn('💡 Asegurate de que el archivo crowdcheer.mp3 esté en la misma carpeta que index.html o en assets/');
+                    console.warn('💡 Copia el archivo desde Downloads a: C:\\Users\\jerod\\Desktop\\COMU\\ProyectoEscenarioFuturo\\');
+                    audioReady = false;
+                }, { once: true });
+            }
+        }
+
+        // Inicializar audio cuando la página carga
+        initAudio();
+
+        // Función para crear papelitos
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            
+            // Colores: blanco, verde claro, amarillo, azul claro
+            const colors = ['#ffffff', '#00ff88', '#ffeb3b', '#64b5f6'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            const drift = (Math.random() - 0.5) * 200; // Deriva horizontal aleatoria
+            const duration = Math.random() * 3 + 2; // Duración entre 2-5 segundos
+            
+            confetti.style.backgroundColor = randomColor;
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.setProperty('--drift', drift + 'px');
+            confetti.style.animationDuration = duration + 's';
+            confetti.style.animationDelay = Math.random() * 0.5 + 's';
+            confetti.style.width = (Math.random() * 10 + 5) + 'px';
+            confetti.style.height = (Math.random() * 10 + 5) + 'px';
+            confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+            
+            confettiContainer.appendChild(confetti);
+            
+            // Remover después de la animación
+            setTimeout(() => {
+                if (confetti.parentNode) {
+                    confetti.remove();
+                }
+            }, (duration + 0.5) * 1000);
+        }
+
+        // Función para iniciar papelitos
+        function startConfetti() {
+            // Crear papelitos cada 200ms
+            confettiInterval = setInterval(() => {
+                if (hinchadaActive) {
+                    createConfetti();
+                }
+            }, 200);
+        }
+
+        // Función para detener papelitos
+        function stopConfetti() {
+            if (confettiInterval) {
+                clearInterval(confettiInterval);
+                confettiInterval = null;
+            }
+            // Limpiar papelitos existentes
+            confettiContainer.innerHTML = '';
+        }
 
         hinchadaBtn.addEventListener('click', () => {
             hinchadaActive = !hinchadaActive;
             
             if (hinchadaActive) {
+                // Activar modo hincha
+                body.classList.add('modo-hincha');
                 hinchadaBtn.classList.add('active');
                 hinchadaBtn.querySelector('.hinchada-text').textContent = 'Hinchada ON';
-                try {
-                    hinchadaAudio.play().catch(() => {
-                        // Silencioso si no se puede reproducir
-                    });
-                } catch (e) {
-                    // Silencioso si hay error
+                hinchadaBtn.querySelector('.hinchada-icon').textContent = '🔊';
+                
+                // Reproducir audio
+                if (hinchadaAudio) {
+                    if (audioReady) {
+                        hinchadaAudio.play().then(() => {
+                            console.log('🔊 Audio de hinchada reproduciéndose');
+                        }).catch((error) => {
+                            console.warn('⚠️ No se pudo reproducir el audio:', error);
+                            // Intentar cargar y reproducir de nuevo
+                            hinchadaAudio.load();
+                            hinchadaAudio.play().catch(() => {
+                                console.warn('💡 El audio requiere interacción del usuario. Haz clic nuevamente en el botón.');
+                            });
+                        });
+                    } else {
+                        // Si el audio no está listo, intentar cargarlo y reproducirlo
+                        hinchadaAudio.load();
+                        hinchadaAudio.play().then(() => {
+                            audioReady = true;
+                            console.log('🔊 Audio cargado y reproduciéndose');
+                        }).catch((error) => {
+                            console.warn('⚠️ No se pudo reproducir el audio.');
+                            console.warn('💡 Verifica que el archivo crowdcheer.mp3 exista en la misma carpeta que index.html');
+                            console.warn('💡 Buscando en: crowdcheer.mp3, assets/crowdcheer.mp3');
+                        });
+                    }
                 }
+                
+                // Iniciar papelitos
+                startConfetti();
             } else {
+                // Desactivar modo hincha
+                body.classList.remove('modo-hincha');
                 hinchadaBtn.classList.remove('active');
-                hinchadaBtn.querySelector('.hinchada-text').textContent = 'Modo hinchada';
-                hinchadaAudio.pause();
-                hinchadaAudio.currentTime = 0;
+                hinchadaBtn.querySelector('.hinchada-text').textContent = 'Modo hincha';
+                hinchadaBtn.querySelector('.hinchada-icon').textContent = '🙌';
+                
+                // Pausar audio
+                if (hinchadaAudio) {
+                    hinchadaAudio.pause();
+                    hinchadaAudio.currentTime = 0;
+                }
+                
+                // Detener papelitos
+                stopConfetti();
             }
         });
 

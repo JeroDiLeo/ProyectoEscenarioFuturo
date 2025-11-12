@@ -63,6 +63,7 @@ body {
         radial-gradient(circle at 90% 80%, rgba(0, 255, 136, 0.08) 0%, transparent 40%),
         radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.05) 0%, transparent 60%);
     animation: lightsPulse 8s ease-in-out infinite;
+    transition: all 0.5s ease;
 }
 
 .stadium-lights::before {
@@ -78,14 +79,68 @@ body {
     animation: lightsMove 12s linear infinite;
 }
 
+/* Modo hincha - luces más intensas */
+body.modo-hincha .stadium-lights {
+    background: 
+        radial-gradient(ellipse at 20% 10%, rgba(0, 255, 136, 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 10%, rgba(0, 255, 136, 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 0%, rgba(0, 255, 136, 0.2) 0%, transparent 60%),
+        radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(0, 255, 136, 0.15) 0%, transparent 40%);
+    animation: lightsPulseIntense 3s ease-in-out infinite;
+}
+
+body.modo-hincha .stadium-lights::before {
+    background: 
+        linear-gradient(135deg, transparent 0%, rgba(0, 255, 136, 0.1) 50%, transparent 100%),
+        linear-gradient(45deg, transparent 0%, rgba(0, 255, 136, 0.1) 50%, transparent 100%);
+    animation: lightsMove 6s linear infinite;
+}
+
 @keyframes lightsPulse {
     0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+@keyframes lightsPulseIntense {
+    0%, 100% { opacity: 0.8; }
     50% { opacity: 1; }
 }
 
 @keyframes lightsMove {
     0% { transform: translateX(0) translateY(0); }
     100% { transform: translateX(20px) translateY(20px); }
+}
+
+/* Fondo de cancha cuando modo hincha está activo */
+body.modo-hincha {
+    background: linear-gradient(180deg, #0a1a0f 0%, #0d1a0f 30%, #0f1a0f 50%, #0d1a0f 70%, #0a1a0f 100%);
+}
+
+body.modo-hincha::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: 
+        radial-gradient(ellipse at center top, rgba(0, 255, 136, 0.15) 0%, transparent 70%),
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 98px,
+            rgba(255, 255, 255, 0.03) 98px,
+            rgba(255, 255, 255, 0.03) 100px
+        );
+    pointer-events: none;
+    animation: fieldLines 10s linear infinite;
+}
+
+@keyframes fieldLines {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100px); }
 }
 
 /* ============================================
@@ -118,7 +173,7 @@ body {
 
 .hinchada-btn.active {
     background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
-    box-shadow: 0 6px 30px rgba(255, 68, 68, 0.5);
+    box-shadow: 0 6px 30px rgba(255, 68, 68, 0.5), 0 0 20px rgba(255, 68, 68, 0.6);
     animation: pulse 2s ease-in-out infinite;
 }
 
@@ -148,6 +203,63 @@ body {
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
+}
+
+/* ============================================
+   PAPELITOS (CONFETTI)
+   ============================================ */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 9998;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    top: -10%;
+    border-radius: 2px;
+    animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) translateX(var(--drift, 0px)) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Modo hincha - bordes de luz en secciones */
+body.modo-hincha .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, var(--color-primary) 20%, var(--color-primary) 80%, transparent 100%);
+    box-shadow: 0 0 20px var(--color-primary-glow);
+    z-index: 1;
+}
+
+body.modo-hincha .section-field::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, var(--color-primary) 20%, var(--color-primary) 80%, transparent 100%);
+    box-shadow: 0 0 20px var(--color-primary-glow);
+    z-index: 1;
 }
 
 /* ============================================
@@ -500,6 +612,14 @@ body {
         radial-gradient(ellipse at center, rgba(0, 255, 136, 0.05) 0%, transparent 70%),
         linear-gradient(180deg, #0d1a0f 0%, #0a0a0a 100%);
     z-index: 0;
+    transition: all 0.5s ease;
+}
+
+/* Modo hincha - cancha más brillante */
+body.modo-hincha .field-background {
+    background: 
+        radial-gradient(ellipse at center, rgba(0, 255, 136, 0.15) 0%, transparent 70%),
+        linear-gradient(180deg, #0f2a1f 0%, #0d1a0f 50%, #0a0a0a 100%);
 }
 
 .field-background::before {
@@ -514,6 +634,12 @@ body {
     border: 2px solid rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     z-index: 0;
+    transition: all 0.5s ease;
+}
+
+body.modo-hincha .field-background::before {
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
 }
 
 .field-background::after {
@@ -526,6 +652,13 @@ body {
     background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.1) 80%, transparent 100%);
     transform: translateY(-50%);
     z-index: 0;
+    transition: all 0.5s ease;
+}
+
+body.modo-hincha .field-background::after {
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 20%, rgba(255, 255, 255, 0.3) 80%, transparent 100%);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+    height: 3px;
 }
 
 .section-field .container {
